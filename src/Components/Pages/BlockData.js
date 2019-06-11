@@ -5,7 +5,7 @@ export class BlockData extends Component {
         const {data} = this.props
         return (
             <div className="center">
-                <Table variant="primary" className="mt3">
+                <Table variant="info" className="mt3">
                 <tr>
                 <th>Hash</th>
                 <th>{data.hash}</th>
