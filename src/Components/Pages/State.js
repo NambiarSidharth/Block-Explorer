@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import axios from "axios"
 import {heroku_url} from "../../ApiRef"
-import { Card, Table, Nav , Button, ListGroup} from 'react-bootstrap';
+import { Card, Table, Nav , Button, ListGroup,Modal} from 'react-bootstrap';
 import DynamicTable from "./DynamicTable";
 export class State extends Component {
     constructor(props) {
@@ -54,10 +54,11 @@ export class State extends Component {
         if(state){
             console.log(state)
             songsData=state.map((obj,i)=>{
-                return <ListGroup.Item onClick={this.showData.bind(this,i)} className="dim">
+                return <Card bg="info" onClick={this.showData.bind(this,i)} className="dim mv1">
+                <Card.Body>
                 {obj.name}
-                </ListGroup.Item>
-                
+                </Card.Body>
+                </Card>
             })
         }else{
             songsData=null
@@ -71,11 +72,14 @@ export class State extends Component {
             </div>
             <div className="row mt3">
             <div className="col-md-4">
-            <Card>
-            <ListGroup variant="flush" className="bg-info">
+            <Modal.Dialog>
+    <Modal.Body style={{maxHeight: 'calc(100vh - 210px)', overflowY: 'auto'}}>
+            
             {songsData}
-            </ListGroup>
-            </Card>         
+            
+            </Modal.Body>
+            </Modal.Dialog>
+                    
             </div>
             <div className="col-md-8">
             {

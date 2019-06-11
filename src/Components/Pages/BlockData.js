@@ -6,6 +6,7 @@ export class BlockData extends Component {
         return (
             <div className="center">
                 <Table variant="info" className="mt3">
+                <tbody>
                 <tr>
                 <th>Hash</th>
                 <th>{data.hash}</th>
@@ -22,6 +23,7 @@ export class BlockData extends Component {
                 <th>previous block hash</th>
                 <th>{data.previousBlockHash}</th>
                 </tr>
+                </tbody>
                 </Table>
             </div>
         )

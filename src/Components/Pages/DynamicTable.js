@@ -12,7 +12,9 @@ export class DynamicTable extends Component {
         return (
             <div>
                 <Table variant="info">
+                <tbody>
                 {view}
+                </tbody>
                 </Table>
             </div>
         )

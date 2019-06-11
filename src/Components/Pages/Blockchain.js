@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import axios from "axios";
 import {heroku_url} from "../../ApiRef";
-import {Card, Button} from "react-bootstrap";
+import {Card, Button, Modal} from "react-bootstrap";
 import BlockData from "./BlockData";
 export class Blockchain extends Component {
     constructor(props) {
@@ -49,8 +49,8 @@ export class Blockchain extends Component {
             dataview=null
         }
         if(chain){
-            blocklist=chain.map(obj=>{
-                return <Card bg="info" className="mv1 dim" onClick={this.showData.bind(this,obj.index)}>
+            blocklist=chain.map((obj,i)=>{
+                return <Card bg="info" key={i} className="mv1 dim" onClick={this.showData.bind(this,obj.index)}>
                 <Card.Body>
                 <h6>Block #{obj.index}</h6>
                 </Card.Body>
@@ -62,18 +62,40 @@ export class Blockchain extends Component {
         return (
             <div>
             <div className="row mv1">
-            <div className="col-md-12 text-right">
+            <div className="col-md-2">
+            {
+            chain?<Card bg="primary" className="dim" onClick={this.showData.bind(this,chain.length-1)}>
+            
+            <Card.Body>
+            <h6>Latest block</h6>
+            </Card.Body>
+            </Card>:null
+            }
+            </div>
+            <div className="col-md-10 text-right">
             <Button variant="warning" onClick={this.refreshChain}>Refresh</Button>
             </div>
             </div>
             <div className="row">
             <div className="col-md-4">
-            {blocklist}
+    <Modal.Dialog>
+    <Modal.Body style={{maxHeight: 'calc(100vh - 210px)', overflowY: 'auto'}}>
+
+    {blocklist}
+
+    </Modal.Body>
+    {
+    //     <Modal.Footer>
+    //   <Button bsStyle="primary">Save changes</Button>
+    // </Modal.Footer>
+}
+    </Modal.Dialog>
             </div>
             <div className="col-md-8">
             {dataview}
             </div>
-            </div>    
+            </div> 
+               
             </div>
         )
     }
