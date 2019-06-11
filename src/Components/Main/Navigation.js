@@ -5,13 +5,13 @@ export class Navigation extends Component {
     render() {
         return (
             <div>
-            <Navbar bg="secondary" variant="dark">
-            <Navbar.Brand href="/">Navbar</Navbar.Brand>
-            <Nav className="mr-auto ml5">
-              <Link to="/blockchain" className="ml5">Chain</Link> 
-              <Link to="/state" className="ml1">State</Link>
-              <Link to="/transaction" className="ml1">transactions</Link>
-              <Link to="/search" className="ml1">Search</Link>
+            <Navbar bg="dark">
+            <Navbar.Brand href="/" className="text-secondary">Bloc-Explore</Navbar.Brand>
+            <Nav className="mr-auto text-right">
+              <Link to="/blockchain" className="ml5 btn btn-outline-secondary text-secondary">Chain</Link> 
+              <Link to="/state" className="ml1 btn btn-outline-secondary text-secondary">State</Link>
+              <Link to="/transaction" className="ml1 btn btn-outline-secondary text-secondary">transactions</Link>
+              <Link to="/search" className="ml1 btn btn-outline-secondary text-secondary">Search</Link>
             </Nav>
           </Navbar>
             </div>
