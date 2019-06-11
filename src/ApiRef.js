@@ -1,0 +1,1 @@
+export const heroku_url="https://tincture.herokuapp.com"
