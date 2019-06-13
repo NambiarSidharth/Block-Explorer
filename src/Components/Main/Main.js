@@ -10,7 +10,6 @@ export class Main extends Component {
                     <Link to="/blockchain" className="ml5 btn btn-outline-secondary text-secondary">Chain</Link> 
               <Link to="/state" className="ml1 btn btn-outline-secondary text-secondary">State</Link>
               <Link to="/transaction" className="ml1 btn btn-outline-secondary text-secondary">transactions</Link>
-              <Link to="/search" className="ml1 btn btn-outline-secondary text-secondary">Search</Link>
            
             </div>
         )
